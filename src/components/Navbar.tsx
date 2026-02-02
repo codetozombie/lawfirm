@@ -12,11 +12,11 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 border-2 border-gold flex items-center justify-center">
-            <span className="text-gold font-serif text-xl font-bold">A</span>
+            <span className="text-gold font-serif text-xl font-bold">M</span>
           </div>
           <div>
             <h1 className="text-white font-serif text-lg md:text-xl font-bold tracking-tight">
-              AMOAKO & ASSOCIATES
+              MORSE & ASSOCIATES
             </h1>
             <p className="text-gold text-[8px] md:text-xs uppercase tracking-widest">
               Attorneys at Law
