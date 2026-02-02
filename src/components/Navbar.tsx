@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Button from "./Button";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,21 +27,23 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
-          <a href="#practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+          <a href="/practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
             Practice Areas
           </a>
-          <a href="#about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+          <a href="/about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
             About
           </a>
-          <a href="#attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+          <a href="/attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
             Attorneys
           </a>
-          <a href="#contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+          <a href="/contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
             Contact
           </a>
+          <Link href="/contact">
           <Button variant="primary" className="!py-2 !px-6">
             Consultation
           </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -63,21 +66,23 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="lg:hidden bg-navy border-t border-gold/20">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            <a href="#practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+            <a href="/practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
               Practice Areas
             </a>
-            <a href="#about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+            <a href="/about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
               About
             </a>
-            <a href="#attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+            <a href="/attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
               Attorneys
             </a>
-            <a href="#contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+            <a href="/contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
               Contact
             </a>
+            <Link href="/contact">
             <Button variant="primary" className="w-full justify-center mt-2">
               Consultation
             </Button>
+            </Link>
           </div>
         </div>
       )}
