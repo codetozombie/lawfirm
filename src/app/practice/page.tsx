@@ -8,7 +8,7 @@ export default function PracticePage() {
   const practiceAreas = [
     {
       title: "Corporate Law",
-      icon: "🏛️",
+      // icon: "🏛️",
       description: "Strategic counsel for businesses at every stage, from formation to acquisition.",
       services: [
         "Business Formation & Structuring",
@@ -22,7 +22,7 @@ export default function PracticePage() {
     },
     {
       title: "Personal Injury",
-      icon: "⚖️",
+      // icon: "⚖️",
       description: "Aggressive representation for injury victims seeking the compensation they deserve.",
       services: [
         "Car & Motorcycle Accidents",
@@ -36,7 +36,7 @@ export default function PracticePage() {
     },
     {
       title: "Family Law",
-      icon: "👨‍👩‍👧‍👦",
+      // icon: "👨‍👩‍👧‍👦",
       description: "Compassionate guidance through life's most difficult personal transitions.",
       services: [
         "Divorce & Separation",
@@ -50,7 +50,7 @@ export default function PracticePage() {
     },
     {
       title: "Criminal Defense",
-      icon: "🛡️",
+      // icon: "🛡️",
       description: "Fierce advocacy protecting your rights and your freedom.",
       services: [
         "White Collar Crime",
@@ -64,7 +64,7 @@ export default function PracticePage() {
     },
     {
       title: "Real Estate Law",
-      icon: "🏠",
+      // icon: "🏠",
       description: "Protecting your interests in residential and commercial property matters.",
       services: [
         "Property Purchases & Sales",
@@ -78,7 +78,7 @@ export default function PracticePage() {
     },
     {
       title: "Estate Planning",
-      icon: "📜",
+      // icon: "📜",
       description: "Secure your legacy and protect your loved ones' future.",
       services: [
         "Wills & Trusts",
@@ -92,7 +92,7 @@ export default function PracticePage() {
     },
     {
       title: "Employment Law",
-      icon: "💼",
+      // icon: "💼",
       description: "Defending worker rights and advising employers on compliance.",
       services: [
         "Wrongful Termination",
@@ -106,7 +106,7 @@ export default function PracticePage() {
     },
     {
       title: "Intellectual Property",
-      icon: "💡",
+      // icon: "💡",
       description: "Protecting your innovations, brands, and creative works.",
       services: [
         "Patent Applications & Prosecution",
@@ -152,7 +152,7 @@ export default function PracticePage() {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <div className="text-4xl mb-4">{area.icon}</div>
+                      {/* <div className="text-4xl mb-4">{area.icon}</div> */}
                       <h3 className="text-white font-serif text-3xl font-bold mb-3">
                         {area.title}
                       </h3>

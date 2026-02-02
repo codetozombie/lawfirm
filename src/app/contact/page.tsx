@@ -272,17 +272,17 @@ export default function ContactPage() {
               {/* Additional Contact Methods */}
               <div className="mt-8 grid md:grid-cols-3 gap-6">
                 <div className="border border-gold/30 p-6 text-center hover:border-gold transition-colors">
-                  <div className="text-3xl mb-3">📞</div>
+                  {/* <div className="text-3xl mb-3">📞</div> */}
                   <h4 className="text-white font-medium mb-2">Call Us</h4>
                   <p className="text-white/60 text-sm">Speak directly with an attorney</p>
                 </div>
                 <div className="border border-gold/30 p-6 text-center hover:border-gold transition-colors">
-                  <div className="text-3xl mb-3">📧</div>
+                  {/* <div className="text-3xl mb-3">📧</div> */}
                   <h4 className="text-white font-medium mb-2">Email Us</h4>
                   <p className="text-white/60 text-sm">Send detailed inquiries</p>
                 </div>
                 <div className="border border-gold/30 p-6 text-center hover:border-gold transition-colors">
-                  <div className="text-3xl mb-3">📍</div>
+                  {/* <div className="text-3xl mb-3">📍</div> */}
                   <h4 className="text-white font-medium mb-2">Visit Us</h4>
                   <p className="text-white/60 text-sm">Meet in person at our office</p>
                 </div>
@@ -297,7 +297,7 @@ export default function ContactPage() {
         <div className="container mx-auto">
           <div className="aspect-[16/9] md:aspect-[21/9] bg-gradient-to-br from-gold/20 to-navy border border-gold/30 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-5xl mb-4">📍</div>
+              {/* <div className="text-5xl mb-4">📍</div> */}
               <p className="text-white/60">Interactive Map</p>
               <p className="text-white/40 text-sm">450 Lexington Avenue, New York, NY</p>
             </div>
