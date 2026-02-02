@@ -1,22 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Define the Law Firm Color Palette */
   --color-navy: #0B1F3B;
   --color-navy-light: #152a4d;
   --color-gold: #C9A24D;
   --color-gold-hover: #b08d42;
   --color-white: #FFFFFF;
+  --color-off-white: #F8F9FA;
 
-  /* Link Tailwind font classes to Next.js font variables */
-  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Optional: Add smooth scrolling and basic body styles */
 @layer base {
   body {
     background-color: var(--color-white);
     color: var(--color-navy);
+    line-height: 1.7; /* Increased line-height for readability */
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* A subtle paper texture for the background sections */
+.bg-texture {
+  background-image: radial-gradient(#0B1F3B 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  background-color: var(--color-off-white);
+  opacity: 1;
 }

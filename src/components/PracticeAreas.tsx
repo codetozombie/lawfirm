@@ -1,36 +1,36 @@
-import { PracticeArea } from "@/types";
-
-const practices: PracticeArea[] = [
-  { id: 1, title: "Corporate Litigation", description: "Defending business interests in complex commercial disputes." },
-  { id: 2, title: "Estate Planning", description: "Preserving wealth and legacy for future generations." },
-  { id: 3, title: "Intellectual Property", description: "Safeguarding your most valuable assets and ideas." },
-  { id: 4, title: "Real Estate Law", description: "Navigating commercial and residential property transactions." },
+const practices = [
+  { title: "Corporate Litigation", text: "Navigating high-stakes commercial disputes with precision." },
+  { title: "Mergers & Acquisitions", text: "Strategic counsel for complex business transactions." },
+  { title: "Intellectual Property", text: "Protecting your most valuable intangible assets." },
+  { title: "Private Wealth", text: "Estate planning and asset protection for generations." },
+  { title: "Real Estate", text: "Commercial development and regulatory compliance." },
+  { title: "Regulatory Defense", text: "Shielding your business from government overreach." },
 ];
 
 export default function PracticeAreas() {
   return (
-    <section className="py-24 bg-white text-navy">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 pb-6">
-          <div className="max-w-xl">
-            <h4 className="text-gold uppercase tracking-widest font-bold text-sm mb-2">Our Expertise</h4>
-            <h2 className="font-serif text-4xl md:text-5xl">Areas of Practice</h2>
-          </div>
-          <a href="/practice" className="text-navy font-bold border-b-2 border-navy pb-1 hover:text-gold hover:border-gold transition-colors mt-6 md:mt-0">
-            VIEW ALL AREAS
-          </a>
+    <section className="py-32 bg-texture text-navy">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="text-center mb-20">
+          <h4 className="text-gold uppercase tracking-widest text-sm font-bold mb-4">Our Expertise</h4>
+          <h2 className="text-4xl md:text-5xl font-serif">Areas of Practice</h2>
+          <div className="w-24 h-1 bg-gold mx-auto mt-6"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {practices.map((item) => (
-            <div key={item.id} className="group p-8 border border-gray-200 hover:border-gold transition-colors duration-300">
-              <div className="w-12 h-12 bg-navy text-gold flex items-center justify-center font-serif text-xl font-bold mb-6 group-hover:bg-gold group-hover:text-navy transition-colors">
-                {item.id}
-              </div>
-              <h3 className="font-serif text-2xl mb-4">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                {item.description}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {practices.map((item, idx) => (
+            <div 
+              key={idx} 
+              className="group relative bg-white p-10 shadow-sm border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="absolute top-0 left-0 w-0 h-1 bg-gold group-hover:w-full transition-all duration-500"></div>
+              <h3 className="font-serif text-2xl mb-4 group-hover:text-gold transition-colors">{item.title}</h3>
+              <p className="text-gray-500 leading-relaxed text-sm mb-6">
+                {item.text}
               </p>
+              <span className="text-xs font-bold uppercase tracking-widest text-navy group-hover:text-gold flex items-center gap-2">
+                Learn More <span>→</span>
+              </span>
             </div>
           ))}
         </div>
