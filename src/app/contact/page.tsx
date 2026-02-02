@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { api } from "@/services/api";
 import Button from "@/components/Button";
 
 export default function ContactPage() {
@@ -10,34 +13,43 @@ export default function ContactPage() {
     email: "",
     phone: "",
     practiceArea: "",
-    message: ""
+    message: "",
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    
-    // Reset form
-    setTimeout(() => {
-      setFormData({ name: "", email: "", phone: "", practiceArea: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+    setSubmitStatus(null);
+
+    try {
+      // Send only the fields the backend expects
+      await api.submitContact({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: `Practice Area: ${formData.practiceArea}\n\n${formData.message}`,
+      });
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', practiceArea: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -150,7 +162,7 @@ export default function ContactPage() {
                   Fill out the form below and we'll contact you within 24 hours
                 </p>
 
-                {submitted ? (
+                {submitStatus === 'success' ? (
                   <div className="border-2 border-gold/50 p-8 text-center">
                     <div className="w-16 h-16 border-2 border-gold mx-auto mb-4 flex items-center justify-center">
                       <span className="text-gold text-3xl">✓</span>
