@@ -1,63 +1,86 @@
+"use client";
+import { useState } from "react";
 import Button from "./Button";
 
-export default function Hero() {
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      
-      {/* 1. BACKGROUND & OVERLAY */}
-      <div 
-        className="absolute inset-0 z-0 animate-[pulse_15s_ease-in-out_infinite]"
-        style={{
-          backgroundImage: "url('/hero.png')", 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      ></div>
-
-      {/* Darker gradient on mobile to make text pop */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-navy/90 via-navy/80 to-navy/60"></div>
-
-      {/* 2. CONTENT CONTAINER */}
-      {/* Changed pt-32 to pt-44 to push content down from the logo */}
-      <div className="relative z-20 container mx-auto px-6 md:px-12 pt-44 pb-20">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-navy/95 backdrop-blur-md border-b border-gold/20 shadow-lg">
+      <div className="container mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
         
-        <div className="max-w-4xl">
-          {/* Gold Accent Line */}
-          <div className="w-16 h-1 bg-gold mb-6 shadow-lg shadow-gold/50"></div>
-          
-          {/* Subheader: Made slightly brighter and spaced out */}
-          <h4 className="text-gold/90 uppercase tracking-[0.25em] text-[10px] md:text-sm font-bold mb-6 animate-fade-in">
-            Attorneys at Law • Est. 1995
-          </h4>
-          
-          {/* Main Headline: Reduced text-4xl to text-3xl for mobile elegance */}
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white mb-6 drop-shadow-2xl">
-            Defending Your Legacy<br />
-            {/* Italic text: Added lighter weight to look less 'chunky' */}
-            <span className="italic font-light text-white/90 block mt-2">
-              With Absolute Resolve.
-            </span>
-          </h1>
-          
-          {/* Body Text: Added more line-height (leading-relaxed) */}
-          <p className="text-sm md:text-xl text-gray-300 mb-10 font-light leading-relaxed max-w-xl border-l-2 border-gold/30 pl-4">
-            We provide sophisticated legal counsel for complex litigation, corporate governance, and private wealth management.
-          </p>
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 border-2 border-gold flex items-center justify-center">
+            <span className="text-gold font-serif text-xl font-bold">A</span>
+          </div>
+          <div>
+            <h1 className="text-white font-serif text-lg md:text-xl font-bold tracking-tight">
+              AMOAKO & ASSOCIATES
+            </h1>
+            <p className="text-gold text-[8px] md:text-xs uppercase tracking-widest">
+              Attorneys at Law
+            </p>
+          </div>
+        </div>
 
-          {/* Buttons: Stacked vertically on mobile with gap */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="primary" className="w-full sm:w-auto justify-center shadow-lg shadow-black/20">
-              Make an Appointment
-            </Button>
-            <Button variant="outline" className="w-full sm:w-auto justify-center backdrop-blur-sm bg-navy/20">
-              View Case Results
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
+          <a href="#practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+            Practice Areas
+          </a>
+          <a href="#about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+            About
+          </a>
+          <a href="#attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+            Attorneys
+          </a>
+          <a href="#contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors">
+            Contact
+          </a>
+          <Button variant="primary" className="!py-2 !px-6">
+            Consultation
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden text-white p-2"
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-navy border-t border-gold/20">
+          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <a href="#practice" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+              Practice Areas
+            </a>
+            <a href="#about" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+              About
+            </a>
+            <a href="#attorneys" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+              Attorneys
+            </a>
+            <a href="#contact" className="text-white/80 hover:text-gold text-sm uppercase tracking-widest transition-colors py-2">
+              Contact
+            </a>
+            <Button variant="primary" className="w-full justify-center mt-2">
+              Consultation
             </Button>
           </div>
         </div>
-      </div>
-      
-      {/* Decorative Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-navy to-transparent z-10"></div>
-    </section>
+      )}
+    </nav>
   );
 }
