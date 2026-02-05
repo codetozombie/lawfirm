@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { api } from "@/services/api";
+import { submitContactForm } from "@/services/api";
 import Button from "@/components/Button";
 
 export default function ContactPage() {
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
     try {
       // Send only the fields the backend expects
-      await api.submitContact({
+      await submitContactForm({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
